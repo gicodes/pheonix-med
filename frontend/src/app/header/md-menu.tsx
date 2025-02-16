@@ -1,10 +1,11 @@
 "use client";
-
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { Box, Typography, Stack, Collapse, Link, MenuItem } from "@mui/material";
 
 const MenuDisplay = () => {
+  const pathname = usePathname();
   const [openSubMenus, setOpenSubMenus] = useState<{ [key: string]: boolean }>({});
 
   const handleSubMenuToggle = (menu: string) => {
@@ -38,10 +39,16 @@ const MenuDisplay = () => {
         </Stack>
       </Collapse>
     </Stack>
-  ); 
+  );
+  
+  if (pathname.startsWith("/auth")) {
+    return null;
+  }
 
   return (
     <Box
+      mt={10}
+      minHeight={'125px'}
       gap={3}
       padding={2}
       width={"100%"}
@@ -67,13 +74,13 @@ export const MenuSubTitle = () => {
   return (
     <Box>
       <Typography
-        boxShadow={'0px 2px 10px rgba(0, 0, 0, 0.1)'}
         padding={2}
         borderRadius={1}
         fontSize="small"
         textAlign="center"
         sx={{ cursor: 'pointer' }}
         display={{ xs: 'none', md: 'grid' }}
+        boxShadow={'0px 2px 10px rgba(0, 0, 0, 0.1)'}
       >
         Welcome to your all-in-one Medical Center
       </Typography>

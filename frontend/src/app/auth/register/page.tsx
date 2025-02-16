@@ -1,9 +1,50 @@
-import React from 'react'
+import Link from 'next/link';
+import { Metadata } from 'next';
+import Page from '@/app/assets/page-template';
+import { Box, Stack, Typography } from '@mui/material';
+import RegistrationForm from './register-form';
 
-const page = () => {
+export const generateMetadata = (): Metadata => {
+  return {
+    title: "Phoenix Medicals - Register",
+    description: "Sign up to Pheonix-Meds & Services",
+  };
+};
+
+const Register = () => {
   return (
-    <div>page</div>
+    <Page>
+      <Box 
+        mt={{ xs: 2, sm: 3, md: 4, lg: 5 }}
+        my={6}
+        width={'100%'} 
+        textAlign={'center'}
+      >
+        <Typography
+          variant={'h6'}
+          color='burlywood'
+        >
+          Register your Account
+        </Typography>
+        <Box>
+          <RegistrationForm />
+          <Stack 
+            mt={4} 
+            direction={'row'}
+            alignItems={'center'} 
+            justifyContent={'center'}
+          >
+            <Typography variant='caption' color='white'>
+              Already have an Account with us? 
+            </Typography>&nbsp;
+            <Link href={'/auth/login'} className='text-wheat fs-small pheonix-effect'> 
+              Login here
+            </Link>
+          </Stack>
+        </Box>
+      </Box>
+    </Page>
   )
 }
 
-export default page
+export default Register;

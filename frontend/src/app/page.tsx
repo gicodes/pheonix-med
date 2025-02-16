@@ -1,17 +1,28 @@
+import { Metadata } from 'next';
+import Footer from "./index/footer";
 import styles from "./page.module.css";
 import Overview from "./index/overview";
-import Footer from "./index/footer";
+import Page from "./assets/page-template";
+
+export const generateMetadata = (): Metadata => {
+  return {
+    title: "Phoenix Medicals - Welcome to your all-in-one Medical Center",
+    description: "Clients can consult with freelancing doctors through our platform for a fee",
+  };
+};
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Overview />
-      </main>
+    <Page>
+      <div className={styles.page}>
+        <main className={styles.main}>
+          <Overview />
+        </main>
 
-      <footer className={styles.footer}>
-        <Footer />
-      </footer>
-    </div>
+        <footer className={styles.footer}>
+          <Footer />
+        </footer>
+      </div>
+    </Page>
   );
 }

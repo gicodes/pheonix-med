@@ -50,6 +50,17 @@ a {
   background: linear-gradient(45deg, gold, #FF2400, purple);
 }
 
+.bg-darksmoke {
+  background: linear-gradient(45deg, silver, #707070, whitesmoke);
+}
+
+.bg-lightsmoke {
+  background: linear-gradient(45deg, whitesmoke, gray, #909090);
+}
+
+.text-dark {
+  color: #101010;
+}
 .text-pheonix {
   background: linear-gradient(45deg, gold, #ff7700, purple);
   background-clip: text;
@@ -57,7 +68,15 @@ a {
   color: transparent;
   letter-spacing: 0.05rem;
 }
+.pheonix-effect:hover {
+  background: linear-gradient(45deg, gold, #ff7700, purple);
+  background-clip: text;
+  -webkit-background-clip: text; 
+  color: transparent;
+  letter-spacing: 0.05rem;
+}
 
+.text-white { color: white;}
 .text-wheat { color: wheat; }
 .text-burly { color: burlywood; }
 
@@ -78,6 +97,8 @@ a {
 .cursive {
   font-family:fantasy;
 }
+
+.fs-small { font-size: small;}
 
 .flex-justify-center {
   display: flex;
@@ -117,6 +138,8 @@ a {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
+
+.my-1 { padding: 1rem 0;}
 
 .mt-1 { margin-top: 1rem;}
 

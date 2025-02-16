@@ -62,7 +62,7 @@ const MenuDrawer = ({ open, toggleDrawer }: { open: boolean; toggleDrawer: (open
       >
         <Box sx={{ display: "flex", justifyContent: "flex-end", p: 1 }}>
           <IconButton onClick={toggleDrawer(false)}>
-            <CloseIcon color="warning" />
+            <span className="text-burly fs-small">Close &nbsp;</span> <CloseIcon color="warning" />
           </IconButton>
         </Box>
 

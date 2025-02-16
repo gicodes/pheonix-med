@@ -22,21 +22,26 @@ export const ClickImageCard = styled(Card)<ImageCardProps>`
   width: 100%;
   min-width: 345px;
   
+  @media (min-width: 344px) and (max-width: 360px) {
+    min-width: 300px;
+    height: 360px;
+  }
+
   @media (min-width: 600px) {
-    width: 555px;
+    min-width: 555px;
   } 
 
   @media (min-width: 768px) and (max-width: 900px) {
-    width: 750px;
+    min-width: 750px;
   }
 
   @media (min-width: 900px) and (max-width: 100px) {
-    width: 345px;
+    min-width: 345px;
   }
 
   @media (min-width: 1024px) {
-    width: 300px;
-    height: 400px
+    min-width: 300px;
+    height: 360px
   }
 
   position: relative;
@@ -91,7 +96,7 @@ export const clickImages = [
   {
     src: '/images/james-supply-meds-unsplash.jpg',
     title: 'Lock-in your Meds',
-    color: 'info'
+    color: 'error'
   },
   {
     src: '/images/seat-sit-unsplash.avif',

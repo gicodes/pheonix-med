@@ -30,9 +30,9 @@ const FloatingText = styled(Box)`
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
 
   @media (min-width: 1024px) {
-    min-height: 120px;
-    left: 7.5%;
-    max-width: 35%;
+    min-height: 150px;
+    left: 5%;
+    max-width: 20%;
   }
 `;
 

@@ -1,12 +1,12 @@
 "use client"
 
+import Link from 'next/link';
 import { useState } from 'react';
 import LogoTxt from '../assets/logo';
 import MenuDrawer from './sm-drawer';
 import { MenuSubTitle } from './md-menu';
 import { Menu, Person } from '@mui/icons-material';
 import { AppBar, Button, Box, IconButton, Stack, Toolbar} from '@mui/material';
-import Link from 'next/link';
 
 export default function Header() {
   const [mobileDrawer, setMobileDrawer] = useState(false);
@@ -19,7 +19,7 @@ export default function Header() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box width={"100%"} zIndex={'999'} position={"fixed"} sx={{ flexGrow: 1 }}>
       <MenuDrawer open={mobileDrawer} toggleDrawer={toggleMobileDrawer} />
       
       <AppBar position="static">
@@ -48,11 +48,16 @@ export default function Header() {
             </Link>
           </Stack>
 
-          <MenuSubTitle />
+          <Link href={"#"} // this link function refreshes the page. Good UX
+          >
+            <MenuSubTitle />
+          </Link>
 
-          <Button color="inherit" sx={{ textTransform: 'none' }}>
-            <Person fontSize='inherit' />&nbsp;
-            <span>Sign in</span>
+          <Button color="inherit" sx={{ textTransform: 'none', boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)' }}>
+            <Link href={'/auth/login'}>
+              <Person fontSize='inherit' />&nbsp;
+              <span>Sign in</span>
+            </Link>
           </Button>
         </Toolbar>
       </AppBar>

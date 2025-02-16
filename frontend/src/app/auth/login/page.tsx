@@ -1,9 +1,51 @@
-import React from 'react'
+import Link from 'next/link';
+import { Metadata } from 'next';
+import Page from '@/app/assets/page-template';
+import { Box, Stack, Typography } from '@mui/material';
+import LoginForm from './login-form';
 
-const login = () => {
+export const generateMetadata = (): Metadata => {
+  return {
+    title: "Phoenix Medicals - Login",
+    description: "Sign in to access your Pheonix-Med account",
+  };
+};
+
+const Login = () => {
   return (
-    <div>login</div>
+    <Page>
+      <Box 
+        mt={{ xs: 2, sm: 3, md: 4, lg: 5 }}
+        my={6}
+        width={'100%'} 
+        textAlign={'center'}
+      >
+        <Typography
+          variant={'h6'}
+          color='burlywood'
+        >
+          Login to your Account
+        </Typography>
+        <Box>
+          <LoginForm />
+
+          <Stack 
+            mt={4} 
+            direction={'row'}
+            alignItems={'center'} 
+            justifyContent={'center'}
+          >
+            <Typography variant='caption' color='white'>
+              Don't have an Account with us? 
+            </Typography>&nbsp;
+            <Link href={'/auth/register'} className='text-wheat fs-small pheonix-effect'> 
+              Register here
+            </Link>
+          </Stack>
+        </Box>
+      </Box>
+    </Page>
   )
 }
 
-export default login
+export default Login;
