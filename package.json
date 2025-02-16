@@ -1,6 +1,9 @@
 {
   "scripts": {
-    "install": "npm install --prefix backend && npm install --prefix frontend",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+
+    "install": "npm-run-all --parallel install:backend install:frontend",
 
     "test": "echo \"Error: no test specified\" && exit 1",
     
