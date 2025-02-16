@@ -12,7 +12,7 @@ const ClickImages = () => {
       gap={1}
       display={{ sm: 'grid', md: 'flex'}}
       flexWrap={{ md: 'wrap', lg: 'nowrap'}}
-      justifyContent={{ sm: 'center', md: 'space-around', lg: 'space-between'}}
+      justifyContent={{ sm: 'center', md: 'space-around'}}
     >
       {clickImages.map((image) => (
         <Box key={image?.title} my={1}>

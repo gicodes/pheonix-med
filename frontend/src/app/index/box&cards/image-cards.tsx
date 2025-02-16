@@ -36,7 +36,7 @@ export const ClickImageCard = styled(Card)<ImageCardProps>`
 
   @media (min-width: 1024px) {
     width: 300px;
-    height: 500px
+    height: 400px
   }
 
   position: relative;
