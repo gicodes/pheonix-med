@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Pheonix Medicals",
-  description: "Price-lock Pharmacy Store - Care & Consultancy Services - Pheonix Meds. All in one Medical center",
+  description: "Price-lock Stores - Pharmacy - Homecare Specialists - Consultancy Services - Pheonix Meds. All in one Medical center with Nurses and Doctors on call",
 };
 
 export default function RootLayout({

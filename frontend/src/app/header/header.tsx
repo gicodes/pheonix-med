@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import LogoTxt from '../assets/logo';
-import MenuDrawer from './xs-drawer';
+import MenuDrawer from './sm-drawer';
 import { MenuSubTitle } from './md-menu';
 import { Menu, Person } from '@mui/icons-material';
 import { AppBar, Button, Box, IconButton, Stack, Toolbar} from '@mui/material';
@@ -35,21 +35,20 @@ export default function Header() {
             edge="start"
             color="inherit"
             sx={{ 
-              display: { xs: 'grid', sm: 'none' },
+              display: { sm: 'grid', md: 'none' },
             }}
             onClick={() => setMobileDrawer(true)}
           >
-            <Menu />
+            <Menu sx={{ fontSize: { xs: '30px', sm: '40px'}}} />
           </IconButton>
 
-          <Stack direction={"row"}>
+          <Stack mx={{ xs: 'auto', sm: 'auto', md: '0'}}>
             <Link href={"/"}>
-            <LogoTxt /></Link>
+              <LogoTxt />
+            </Link>
           </Stack>
 
-          <Stack>
-            <MenuSubTitle />
-          </Stack>
+          <MenuSubTitle />
 
           <Button color="inherit" sx={{ textTransform: 'none' }}>
             <Person fontSize='inherit' />&nbsp;

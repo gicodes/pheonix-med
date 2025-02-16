@@ -1,16 +1,16 @@
-import { Box, Card } from '@mui/material'
-import React from 'react'
+import React from 'react';
+import { Box, } from '@mui/material';
+import {TextCard} from './box&cards/text-cards';
+import ClickImages from './box&cards/click-card';
+import NonClickImages from './box&cards/non-click-card';
 
 const Overview = () => {
   return (
-    <div className="p-1">
-      <Card sx={{ p: 2 }}>
-        <Box textAlign={"center"}>
-          This is the overview page
-          It will contain a summary of Pheonix's sales and services
-        </Box>
-      </Card>
-    </div>
+    <Box p={{ xs: 2, sm: 3, md: 4}}>
+      <NonClickImages />
+      <TextCard />
+      <ClickImages />
+    </Box>
   )
 }
 
