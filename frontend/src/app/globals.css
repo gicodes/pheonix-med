@@ -94,7 +94,11 @@ a {
   color: transparent;
 }
 
-.cursive {
+.segoe {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fanatasy {
   font-family:fantasy;
 }
 

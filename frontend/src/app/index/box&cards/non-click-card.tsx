@@ -21,7 +21,7 @@ const FloatingText = styled(Box)`
   bottom: 7.5%;
   width: auto;
   max-width: 90%;
-  padding: 18px;
+  padding: 10px;
   border-radius: 5px;
   text-align: center;
   color: whitesmoke;

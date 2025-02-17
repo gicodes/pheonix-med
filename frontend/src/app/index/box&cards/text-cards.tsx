@@ -11,7 +11,7 @@ export const TextCard = () => (
         fontSize={{ xs: '25px', sm: '35px', md: '40px'}}
       >
         A Small Act, A Big Impact. 
-        <span className='block cursive mt-1'> We literally supply the 
+        <span className='block sergoe mt-1'> We literally supply the 
           <b className='flame'> Vitamin-U</b> lacked 
         </span>
       </Typography>
