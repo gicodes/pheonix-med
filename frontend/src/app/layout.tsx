@@ -1,4 +1,5 @@
 import "./globals.css";
+import Footer from "./footer";
 import type { Metadata } from "next";
 import Header from "./header/header";
 import MenuDisplay from "./header/md-menu";
@@ -30,6 +31,7 @@ export default function RootLayout({
         <Header />
         <MenuDisplay />
         {children}
+        <Footer />
       </body>
     </html>
   );

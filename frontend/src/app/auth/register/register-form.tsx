@@ -13,7 +13,8 @@ import {
   InputAdornment, 
   Radio, 
   RadioGroup, 
-  TextField 
+  TextField, 
+  Typography
 } from "@mui/material";
 
 export default function RegistrationForm() {
@@ -61,17 +62,22 @@ export default function RegistrationForm() {
   return (
     <Box 
       sx={{ 
-        p: 3, 
-        mt: 4,
+        p: 3,
         mx: "auto", 
         boxShadow: 2,
         maxWidth: 400, 
         borderRadius: 2, 
       }}
       className="bg-darksmoke"
+    >
+      <Typography
+        variant={'h6'}
+        color='black'
       >
-      <FormControl component="fieldset" sx={{ mb: 2 }}>
-        <RadioGroup className="text-dark" row value={userType} onChange={(e) => setUserType(e.target.value as "nurse" | "doctor")}>
+        Register your Account
+      </Typography>
+      <FormControl component="fieldset" sx={{ my: 2 }}>
+        <RadioGroup className="wildcard" row value={userType} onChange={(e) => setUserType(e.target.value as "nurse" | "doctor")}>
           <FormControlLabel value="nurse" control={<Radio />} label="Nurse" />
           <FormControlLabel value="doctor" control={<Radio />} label="Doctor" />
         </RadioGroup>

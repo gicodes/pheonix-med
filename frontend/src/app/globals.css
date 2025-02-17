@@ -61,6 +61,7 @@ a {
 .text-dark {
   color: #101010;
 }
+
 .text-pheonix {
   background: linear-gradient(45deg, gold, #ff7700, purple);
   background-clip: text;
@@ -94,6 +95,30 @@ a {
   color: transparent;
 }
 
+.bbl-wildcard {
+  width: 300px;
+  padding: 10px;
+  margin: 0 auto;
+  color: #909090;
+  border: #101010;
+  border-radius: 4px;
+  background: #171717;
+  justify-content: center;
+}
+
+.wildcard {
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  margin: 0 auto;
+  color: #101010;
+  border: #707070;
+  border-radius: 4px;
+  background: silver;
+  justify-content: center;
+}
+
+.italic { font-style: italic;}
+
 .segoe {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -103,6 +128,7 @@ a {
 }
 
 .fs-small { font-size: small;}
+.fs-xs { font-size: x-small;}
 
 .flex-justify-center {
   display: flex;

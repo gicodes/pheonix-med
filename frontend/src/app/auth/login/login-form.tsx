@@ -8,7 +8,8 @@ import {
   Button, 
   IconButton, 
   InputAdornment, 
-  TextField 
+  TextField ,
+  Typography
 } from "@mui/material";
 
 export default function LoginForm() {
@@ -39,15 +40,20 @@ export default function LoginForm() {
   return (
     <Box 
       sx={{ 
-        p: 3, 
-        mt: 4, 
+        p: 3,  
         mx: "auto", 
         boxShadow: 2,
         maxWidth: 400, 
         borderRadius: 2, 
       }}
       className="bg-lightsmoke"
-      >
+    >
+      <Typography
+          variant={'h6'}
+          color='black'
+        >
+          Login to your Account
+      </Typography>
       <form onSubmit={handleSubmit}>
         <TextField fullWidth type="email" label="Email Address" name="email" value={formData.email} onChange={handleChange} margin="normal" required />
         <TextField

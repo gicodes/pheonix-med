@@ -1,10 +1,14 @@
+import { MedicalInformation } from '@mui/icons-material';
 import { Stack, Typography } from '@mui/material';
-import { MonitorHeart } from '@mui/icons-material';
-import React from 'react'
+import React from 'react';
 
 const LogoTxt = () => {
   return (
-    <Stack direction={"column"}>
+    <Stack
+      boxShadow={'0px 2px 10px rgba(0, 0, 0, 0.1)'} 
+      direction={"column"} 
+      p={'4px 12px'}
+    >
       <Typography 
         variant="h6"
         component="div"
@@ -15,12 +19,13 @@ const LogoTxt = () => {
         Pheonix
       </Typography>
 
-      <Stack direction={"row"} mt={-1} className='text-burly'>
-        <MonitorHeart color="inherit" className='my-auto' />
+      <Stack direction={"row"} mt={-1} className='text-wheat' >
+        <MedicalInformation color="inherit" className='my-auto' />
         <Typography 
-          display={'flex'}
           justifyContent={'flex-end'}
+          display={'flex'}
           variant="h6"
+          color='burlywood'
           component='div'
           fontWeight={600} 
           fontStyle={"italic"} 
@@ -29,9 +34,7 @@ const LogoTxt = () => {
           Med
         </Typography> 
       </Stack>
-      
     </Stack>
-    
   )
 }
 

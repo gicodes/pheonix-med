@@ -11,7 +11,7 @@ export const TextCard = () => (
         fontSize={{ xs: '25px', sm: '35px', md: '40px'}}
       >
         A Small Act, A Big Impact. 
-        <span className='block sergoe mt-1'> We literally supply the 
+        <span className='italic block sergoe mt-1'> We literally supply the 
           <b className='flame'> Vitamin-U</b> lacked 
         </span>
       </Typography>
@@ -31,7 +31,7 @@ export const AboutPhenixText = () => (
       <span>Phoenix Med is revolutionizing healthcare access by combining compassion, convenience, and experience&#8212; All at an affordable rate.</span>
       <span className='block'>Our platform bridges the gap between patients, doctors, nurses, and philanthropists, ensuring that life-saving medications and healthcare services are within reach for everyone ...</span> 
       <span>from our <b>PriceLock</b> 🔐 feature that protects clients from medication price surges to our <b>Save-a-Life</b> initiative that connects those in need with generous donors, we are redefining how healthcare should work&#8212; fair, accessible, and secure.</span>
-      <span className='block'>With freelancing doctors and nurses available for consultations and home care, Phoenix Med is more than just a healthcare provider; 
+      <span className='block'> With freelancing doctors and nurses available for consultations and home care, Phoenix Med is more than just a healthcare provider; 
       it’s a community-driven ecosystem where wellness meets innovation. Whether you're securing long-term prescriptions, 
       consulting with a doctor online, or hiring a certified nurse, we make healthcare simple, secure, and affordable.</span>
     </Typography>

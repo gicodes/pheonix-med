@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
-import Footer from "./index/footer";
 import styles from "./page.module.css";
 import Overview from "./index/overview";
 import Page from "./assets/page-template";
+import IndexFooter from './index/box&cards/index-footer';
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -20,7 +20,7 @@ export default function Home() {
         </main>
 
         <footer className={styles.footer}>
-          <Footer />
+          <IndexFooter />
         </footer>
       </div>
     </Page>

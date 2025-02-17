@@ -27,7 +27,7 @@ export default function Header() {
           sx={{
             width: '100%',
             justifyContent: 'space-between',
-            padding: { xs: '1rem 0.75rem', md: '1rem 3rem' },
+            padding: { xs: '0.5rem 0.75rem', md: '0.5rem 3rem' },
           }}
         >
           <IconButton
@@ -36,6 +36,7 @@ export default function Header() {
             color="inherit"
             sx={{ 
               display: { sm: 'grid', md: 'none' },
+              boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)'
             }}
             onClick={() => setMobileDrawer(true)}
           >

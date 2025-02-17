@@ -15,17 +15,10 @@ const Login = () => {
   return (
     <Page>
       <Box 
-        mt={{ xs: 2, sm: 3, md: 4, lg: 5 }}
         my={6}
         width={'100%'} 
         textAlign={'center'}
       >
-        <Typography
-          variant={'h6'}
-          color='burlywood'
-        >
-          Login to your Account
-        </Typography>
         <Box>
           <LoginForm />
 

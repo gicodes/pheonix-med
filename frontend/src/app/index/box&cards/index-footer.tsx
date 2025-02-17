@@ -1,13 +1,13 @@
-import React from 'react'
+import { Box } from '@mui/material';
 import Image from "next/image";
-import { Box, Stack, Typography } from '@mui/material';
+import React from 'react';
 
-const Footer = () => {
+const IndexFooter = () => {
   return (
     <Box
       display={"grid"}
       mx={"auto"}
-      my={10} 
+      my={2} 
     >
       <Box 
         display={"flex"}
@@ -57,32 +57,9 @@ const Footer = () => {
           Subscribe →
         </a>
       </Box>
-
-      <Stack
-        direction={"row"}
-        mx={"auto"}
-        py={2}
-        spacing={2}
-      >
-        <Typography variant={"body2"} color={"gray"}>
-          Terms & Conditions &nbsp; |
-        </Typography>
-        <Typography variant={"body2"} color={"gray"}>
-          Privacy Policy &nbsp; |
-        </Typography>
-        <Typography variant={"body2"} color={"gray"}>
-          Cookie Policy
-        </Typography>
-      </Stack>
-
-      <Box mt={5} mx={"auto"}>
-        <Typography variant={"caption"} color={"darkgray"}>
-          © 2025 Phoenix Medicals. All rights reserved.
-        </Typography>
-      </Box>
+      <hr/>
     </Box>
-    
   )
 }
 
-export default Footer
+export default IndexFooter

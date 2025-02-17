@@ -60,10 +60,21 @@ const MenuDrawer = ({ open, toggleDrawer }: { open: boolean; toggleDrawer: (open
         }}
         role="presentation"
       >
-        <Box sx={{ display: "flex", justifyContent: "flex-end", p: 1 }}>
-          <IconButton onClick={toggleDrawer(false)}>
-            <span className="text-burly fs-small">Close &nbsp;</span> <CloseIcon color="warning" />
-          </IconButton>
+        <Box 
+          sx={{ 
+            p: 1,
+            display: "flex", 
+            justifyContent: "flex-end", 
+            }}
+          >
+          <Stack boxShadow={'0px 2px 10px rgba(0, 0, 0, 0.1)'}>
+            <IconButton 
+              onClick={toggleDrawer(false)}
+              
+            >
+              <span className="text-white fs-small">Close &nbsp;</span> <CloseIcon color="warning" />
+            </IconButton>
+          </Stack>
         </Box>
 
         <Stack gap={2} color={"wheat"} pt={10} mx={"auto"}>

@@ -17,6 +17,6 @@ export const Dot = styled('div')<DotProps>(({ isActive }) => ({
   width: '10px',
   height: '10px',
   borderRadius: '50%',
-  border: '0.1px solid transparent',
-  backgroundColor: isActive ? 'orange' : 'lightgray',
+  border: '0.1px solid gray',
+  backgroundColor: isActive ? 'tomato' : 'lightgray',
 }));
