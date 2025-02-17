@@ -1,4 +1,5 @@
 import { MedicalInformation } from '@mui/icons-material';
+import { FaClinicMedical } from 'react-icons/fa';
 import { Stack, Typography } from '@mui/material';
 import React from 'react';
 
@@ -20,7 +21,7 @@ const LogoTxt = () => {
       </Typography>
 
       <Stack direction={"row"} mt={-1} className='text-wheat' >
-        <MedicalInformation color="inherit" className='my-auto' />
+        <FaClinicMedical className='my-auto' />
         <Typography 
           justifyContent={'flex-end'}
           display={'flex'}

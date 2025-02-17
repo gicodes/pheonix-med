@@ -15,7 +15,7 @@ const Register = () => {
   return (
     <Page>
       <Box 
-        my={6}
+        my={{ xs: 1.5, sm: 3, md: 6}}
         width={'100%'} 
         textAlign={'center'}
       >

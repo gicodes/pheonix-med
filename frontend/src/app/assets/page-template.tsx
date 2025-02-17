@@ -10,7 +10,7 @@ export default function Page({ children }: PageProps) {
     <Box 
       p={{ 
         xs: '5rem 0.5rem 0 0.5rem', 
-        sm: '4rem 1rem 0 1rem', 
+        sm: '5rem 1rem 0 1rem', 
         md: '3rem 2rem 0 2rem'
       }}
     >

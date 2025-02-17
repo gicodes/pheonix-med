@@ -54,10 +54,16 @@ export default function Header() {
             <MenuSubTitle />
           </Link>
 
-          <Button color="inherit" sx={{ textTransform: 'none', boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)' }}>
+          <Button 
+            color="inherit" 
+            sx={{ 
+              textTransform: 'none', 
+              boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)' 
+            }}
+          >
             <Link href={'/auth/login'}>
               <Person fontSize='inherit' />&nbsp;
-              <span>Sign in</span>
+              <span>Login</span>
             </Link>
           </Button>
         </Toolbar>
