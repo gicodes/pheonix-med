@@ -22,6 +22,10 @@ export const ClickImageCard = styled(Card)<ImageCardProps>`
   width: 100%;
   min-width: 345px;
   
+  @media (max-width: 344px) {
+    min-width: 280px
+  }
+
   @media (min-width: 344px) and (max-width: 360px) {
     min-width: 300px;
     height: 360px;
