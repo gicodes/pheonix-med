@@ -34,14 +34,16 @@ const MenuDrawer = ({ open, toggleDrawer }: { open: boolean; toggleDrawer: (open
               fontSize={"smaller"} 
               sx={{ cursor: "pointer" }}
             >
-              {name==="Nurse" ? 'See a nurse Nearby' : 'Speak with a Specialist'}
+              {name==="Nurse" ? 'Employ a Nurse Nearby' : 'Speak with a Specialist'}
             </Typography>
           </Link>
           <Link 
             href={`/auth/register/#${title}`} 
             onClick={toggleDrawer(false)}
           >
-            <Typography color="gold" fontSize={"smaller"} sx={{ cursor: "pointer" }}>Register as a {name}</Typography>
+            <Typography color="gold" fontSize={"smaller"} sx={{ cursor: "pointer" }}>
+            {name==="Nurse" ? 'Get Special Care' : 'Upload a Doctors report'}
+            </Typography>
           </Link>
         </Stack>
       </Collapse>

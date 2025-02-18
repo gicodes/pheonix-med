@@ -84,23 +84,28 @@ export const images = [
 
 export const clickImages = [
   {
-    src: '/images/emmanuel-learn-about-pheonix-unsplash.jpg',
-    title: 'Learn About Pheonix',
-    color: 'warning'
-  },
-  {
-    src: '/images/chang-over-the-counter-unsplash.jpg',
-    title: 'Upload a Report ',
-    color: 'primary'
-  },
-  {
     src: '/images/james-supply-meds-unsplash.jpg',
-    title: 'Lock-in your Meds',
+    title: 'Order a Medicine',
     color: 'error'
   },
   {
     src: '/images/seat-sit-unsplash.avif',
+    title: 'Book An Appointment',
+    color: 'primary'
+  },
+  {
+    src: '/images/nappy-giving-meds-unsplash.avif',
     title: 'Get Special Care',
-    color: 'secondary',
-  }
+    color: 'secondary'
+  },
+  {
+    src: '/images/nappy-medical-reports-unsplash.jpg',
+    title: 'Save A Life Campaign',
+    color: 'warning',
+  },
+  // {
+  // src: '/images/emmanuel-learn-about-pheonix-unsplash.jpg',
+  //   title: 'Learn About Pheonix',
+  //   color: 'secondary'
+  // }
 ]

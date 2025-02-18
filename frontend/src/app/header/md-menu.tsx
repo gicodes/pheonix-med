@@ -31,10 +31,10 @@ const MenuDisplay = () => {
       <Collapse in={openSubMenus[title]}>
         <Stack mt={1} pl={2} gap={2} color={"yellow"}>
           <Link href={`/${title}`}sx={{ color: "gold", fontSize: "smaller", textDecoration: "none" }}>
-            {name==="Nurse" ? 'See a nurse Nearby' : 'Speak with a Specialist'}
+            {name==="Nurse" ? 'Employ a Nurse Nearby' : 'Speak with a Specialist'}
           </Link>
           <Link href={`/auth/register/#${title}`} sx={{ color: "gold", fontSize: "smaller", textDecoration: "none" }}>
-            Register as a {name}
+            {name==="Nurse" ? 'Get Special Care' : 'Upload a Doctors report'}
           </Link>
         </Stack>
       </Collapse>
