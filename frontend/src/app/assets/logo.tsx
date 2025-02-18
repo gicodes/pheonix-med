@@ -1,6 +1,6 @@
-import { MedicalInformation } from '@mui/icons-material';
-import { FaClinicMedical } from 'react-icons/fa';
+// import { MedicalInformation } from '@mui/icons-material';
 import { Stack, Typography } from '@mui/material';
+import { FaClinicMedical } from 'react-icons/fa';
 import React from 'react';
 
 const LogoTxt = () => {

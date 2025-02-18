@@ -15,7 +15,7 @@ const IndexFooter = () => {
         gap={{ xs: 2, sm: 3, md: 4, lg: 5 }}
       >
         <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href=""
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -29,7 +29,7 @@ const IndexFooter = () => {
           Docs
         </a>
         <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href=""
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -43,7 +43,7 @@ const IndexFooter = () => {
           Opt-in
         </a>
         <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href=""
           target="_blank"
           rel="noopener noreferrer"
         >

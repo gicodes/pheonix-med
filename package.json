@@ -2,7 +2,7 @@
 {
   "name": "pheonix_med",
   "version": "1.0.0",
-  "description": "Root directory to Pheonix Meds",
+  "description": "Root directory to Pheonix Meds Backend & Frontend",
   "main": "",
   "scripts": {
     "install:backend": "cd backend && npm install",
