@@ -57,15 +57,15 @@ const MenuDisplay = () => {
       justifyContent={"center"}
       display={{ xs: "none", md: "flex" }}
     >
-      <ParentMenuPages caption="Nurse & Homecare" name="Nurse" title="nurses" />
-
-      <ParentMenuPages caption="Doctor Consultancy" name="Doctor" title="doctors" />
-
       <MenuItem sx={{ position: "relative", display: "grid", alignItems: "flex-start" }}>
         <Link href="/pharmacy" sx={{ color: "wheat", fontSize: "smaller" }}>
           Lock-in Pharmacy
         </Link>
       </MenuItem>
+
+      <ParentMenuPages caption="Nurse & Homecare" name="Nurse" title="nurses" />
+
+      <ParentMenuPages caption="Doctor Consultancy" name="Doctor" title="doctors" />
     </Box>
   );
 };

@@ -79,16 +79,16 @@ const MenuDrawer = ({ open, toggleDrawer }: { open: boolean; toggleDrawer: (open
           </Stack>
         </Box>
 
-        <Stack gap={2} color={"wheat"} pt={10} mx={"auto"}>
-          <ParentMenuPages caption="Nurses & Homecare" name="Nurse" title="nurses" />
-
-          <ParentMenuPages caption="Doctor Consultancy" name="Doctor" title="doctors" />
-          
+        <Stack gap={2} color={"wheat"} pt={10} mx={"auto"}>          
           <Link href="/pharmacy" onClick={toggleDrawer(false)}>
             <Typography color="wheat" fontSize={"smaller"} sx={{ cursor: "pointer" }}>
               Lock-in Pharmacy
             </Typography>
           </Link>
+
+          <ParentMenuPages caption="Nurses & Homecare" name="Nurse" title="nurses" />
+
+          <ParentMenuPages caption="Doctor Consultancy" name="Doctor" title="doctors" />
         </Stack>
       </Box>
     </Drawer>
