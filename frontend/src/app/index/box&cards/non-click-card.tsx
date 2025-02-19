@@ -15,6 +15,7 @@ const Container = styled('div')({
   justifyContent: 'center',
 });
 
+// Floating Text is disabled for Index page simplicity; && clickCards.FloatingText
 const FloatingText = styled(Box)`
   position: absolute;
   bottom: 7.5%;
@@ -55,14 +56,14 @@ const NonClickImages: React.FC = () => {
   return (
     <Container>
       <ImageCard image={images[currentIndex].src}>
-        <FloatingText>
+        {/* <FloatingText>
           <b className='text-wheat'>{images[currentIndex].title}</b>
           <Typography
             mt={{ xs: 1, sm: 1.5, md: 2, lg: 3}}
             fontSize={'small'}
           >
             {images[currentIndex].text}</Typography>
-        </FloatingText>
+        </FloatingText> */}
         <Pagination>
           {images.map((_, index) => (
             <Dot isActive={index === currentIndex} key={index} />
