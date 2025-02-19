@@ -3,7 +3,12 @@ import CloseIcon from "@mui/icons-material/Close";
 import {ExpandMore, ExpandLess} from "@mui/icons-material";
 import { Drawer, Box, IconButton, Typography, Stack, Collapse, Link } from "@mui/material";
 
-const MenuDrawer = ({ open, toggleDrawer }: { open: boolean; toggleDrawer: (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => void }) => {  const [openSubMenus, setOpenSubMenus] = useState<{ [key: string]: boolean }>({});
+const MenuDrawer = ({ 
+  open, toggleDrawer }: 
+  { open: boolean; toggleDrawer: (open: boolean) => (
+  event: React.KeyboardEvent | React.MouseEvent) => void }) => { 
+     
+  const [openSubMenus, setOpenSubMenus] = useState<{ [key: string]: boolean }>({});
   const handleSubMenuToggle = (menu: string) => {
     setOpenSubMenus((prev) => ({ ...prev, [menu]: !prev[menu] }));
   };
@@ -38,11 +43,11 @@ const MenuDrawer = ({ open, toggleDrawer }: { open: boolean; toggleDrawer: (open
             </Typography>
           </Link>
           <Link 
-            href={`/auth/register/#${title}`} 
+            href={name==="Nurse" ? '/nurses/#leave-a-review' : `/doctors/#upload-a-report`} 
             onClick={toggleDrawer(false)}
           >
             <Typography color="gold" fontSize={"smaller"} sx={{ cursor: "pointer" }}>
-            {name==="Nurse" ? 'Get Special Care' : 'Upload a Doctors report'}
+              {name==="Nurse" ? 'Leave a Review' : 'Upload Doctors report'}
             </Typography>
           </Link>
         </Stack>
@@ -70,10 +75,7 @@ const MenuDrawer = ({ open, toggleDrawer }: { open: boolean; toggleDrawer: (open
             }}
           >
           <Stack boxShadow={'0px 2px 10px rgba(0, 0, 0, 0.1)'}>
-            <IconButton 
-              onClick={toggleDrawer(false)}
-              
-            >
+            <IconButton onClick={toggleDrawer(false)}>
               <span className="text-white fs-small">Close &nbsp;</span> <CloseIcon color="warning" />
             </IconButton>
           </Stack>

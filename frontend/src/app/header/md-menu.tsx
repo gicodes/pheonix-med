@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
@@ -24,17 +25,24 @@ const MenuDisplay = () => {
   ) => (
     <Stack>
       <MenuItem onClick={() => handleSubMenuToggle(title)}>
-        <Typography sx={MenuItemSx}>{caption}</Typography>
+        <Typography sx={MenuItemSx}>
+          {caption}
+        </Typography>
         {openSubMenus[title] ? <ExpandLess /> : <ExpandMore />}
       </MenuItem>
 
       <Collapse in={openSubMenus[title]}>
         <Stack mt={1} pl={2} gap={2} color={"yellow"}>
-          <Link href={`/${title}`}sx={{ color: "gold", fontSize: "smaller", textDecoration: "none" }}>
+          <Link 
+            href={`/${title}`}
+            sx={{ color: "gold", fontSize: "smaller", textDecoration: "none" }}>
             {name==="Nurse" ? 'Employ a Nurse Nearby' : 'Speak with a Specialist'}
           </Link>
-          <Link href={`/auth/register/#${title}`} sx={{ color: "gold", fontSize: "smaller", textDecoration: "none" }}>
-            {name==="Nurse" ? 'Get Special Care' : 'Upload a Doctors report'}
+          <Link 
+            href={name==="Nurse" ? '/nurses/#leave-a-review' : `/doctors/#upload-a-report`} 
+            sx={{ color: "gold", fontSize: "smaller", textDecoration: "none" }}
+          >
+            {name==="Nurse" ? 'Leave a Review' : 'Upload Doctors report'}
           </Link>
         </Stack>
       </Collapse>
