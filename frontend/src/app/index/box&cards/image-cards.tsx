@@ -18,8 +18,9 @@ export const ImageCard = styled(Card)<ImageCardProps>`
 `;
 
 export const ClickImageCard = styled(Card)<ImageCardProps>`
-  height: 420px;
   width: 100%;
+  height: 420px;
+  padding: 0.75rem;
   min-width: 345px;
   
   @media (max-width: 344px) {
@@ -89,27 +90,31 @@ export const images = [
 export const clickImages = [
   {
     src: '/images/james-supply-meds-unsplash.jpg',
-    title: 'Order a Medicine',
+    title: 'Price Lock Pharmacy 🔐',
+    description: 'Order your routine medications with confidence as we lock in your price for 6 to 12 months—regardless of market fluctuations. This is not your regular over-the-counter pharmacy',
     color: 'error'
   },
   {
     src: '/images/seat-sit-unsplash.avif',
-    title: 'Book An Appointment',
+    title: 'Speak To A Doctor →',
+    description: 'Connect instantly with licensed doctors for expert medical advice from the comfort of your home. Whether it’s a follow-up consultation, a prescription update, or video chat',
     color: 'primary'
   },
   {
     src: '/images/nappy-giving-meds-unsplash.avif',
-    title: 'Get Special Care',
+    title: 'Homecare Nursing →',
+    description: 'Bring professional, compassionate care right to your doorstep with our Homecare Nursing service. Access verified freelance nurses who offer day-to-day needs and special care',
     color: 'secondary'
   },
   {
     src: '/images/nappy-medical-reports-unsplash.jpg',
-    title: 'Save A Life Campaign',
-    color: 'warning',
+    title: 'Save A Life Campaign →',
+    description: 'Join our mission to transform lives by supporting those who cannot afford essential medications. Through the Save A Life Campaign, you contribute directly and help patients in need',
+    color: 'warning'
   },
   // {
-  // src: '/images/emmanuel-learn-about-pheonix-unsplash.jpg',
-  //   title: 'Learn About Pheonix',
+  //   src: '/images/emmanuel-learn-about-pheonix-unsplash.jpg',
+  //   title: 'Learn About Pheonix →',
   //   color: 'secondary'
   // }
 ]

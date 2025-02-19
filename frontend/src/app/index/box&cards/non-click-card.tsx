@@ -1,6 +1,6 @@
 "use client";
 
-import { Pagination, Dot } from '../../assets/pagination'
+import { Pagination, Dot } from '../../assets/pagination';
 import { ImageCard, images } from './image-cards';
 import { Box, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
@@ -15,19 +15,24 @@ const Container = styled('div')({
   justifyContent: 'center',
 });
 
-
 const FloatingText = styled(Box)`
   position: absolute;
   bottom: 7.5%;
   width: auto;
-  max-width: 90%;
   padding: 10px;
+  max-width: 90%;
+  color: whitesmoke;
   border-radius: 5px;
   text-align: center;
-  color: whitesmoke;
-  font-family: Verdana, Geneva, sans-serif;
   background: rgba(0, 0, 0, 0.6);
+  font-family: Verdana, Geneva, sans-serif;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    min-height: 145px;
+    left: 5%;
+    max-width: 40%;
+  }
 
   @media (min-width: 1024px) {
     min-height: 150px;

@@ -15,5 +15,4 @@ router.post('/nurses', createNurse);
 router.put('/nurses/:id', updateNurse);
 router.delete('/nurses/:id', deleteNurse);
 
-
 export default router;
