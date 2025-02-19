@@ -2,10 +2,11 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import express, { Express } from 'express';
+import AdminRouter from './api/admin/_page';
+import NurseUserRouter from './api/users/nurses/_page';
+import DoctorUserRouter from './api/users/doctors/_page';
 
 dotenv.config();
-
-// Import routes
 
 const app: Express = express();
 
@@ -29,7 +30,9 @@ app.use(
   })
 )
 
-// Use routes
+app.use('/api', AdminRouter)
+app.use('/api', NurseUserRouter)
+app.use('/api', DoctorUserRouter)
 
 const PORT = process.env.PORT || 5001;
 

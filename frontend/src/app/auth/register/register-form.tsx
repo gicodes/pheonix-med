@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Visibility from "@mui/icons-material/Visibility";
@@ -14,7 +15,7 @@ import {
   Radio, 
   RadioGroup, 
   TextField, 
-  Typography
+  Typography 
 } from "@mui/material";
 
 export default function RegistrationForm() {

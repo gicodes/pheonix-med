@@ -1,6 +1,9 @@
 import React from 'react'
-import { Box, Stack, Typography } from '@mui/material';
 import Link from 'next/link';
+import { Box, 
+  Stack, 
+  Typography 
+} from '@mui/material';
 
 const Footer = () => {
   return (
