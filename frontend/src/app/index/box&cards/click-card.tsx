@@ -25,7 +25,7 @@ const ClickImages = () => {
               text-shadow={'1px 1px 5px rgba(0, 0, 0, 0.7)'}
             >
               <Typography 
-                mb={4}
+                mb={{ xs: 5, sm: 4, md: 6}}
                 color='white' 
                 fontSize={'smaller'}
               >

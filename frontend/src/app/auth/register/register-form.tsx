@@ -30,6 +30,7 @@ export default function RegistrationForm() {
     confirmPassword: "",
     termsAccepted: false,
     doctorsLicense: "",
+    nursesLicense: "",
   });
 
   useEffect(() => {
@@ -55,19 +56,46 @@ export default function RegistrationForm() {
   const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
   const toggleConfirmPasswordVisibility = () => setShowConfirmPassword((prev) => !prev);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit =async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
-      return;
     }
     if (!formData.termsAccepted) {
       alert("You must accept the terms and conditions.");
-      return;
     }
 
-    // RESTful event
-    console.log("Form submitted:", { ...formData, userType });
+    try {
+      const response = await fetch(`http://localhost:5001/api/${userType}`, {
+        method: 'POST',
+        body: JSON.stringify({ ...formData, userType}),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      console.log('After response')
+      
+      if (!response.ok){
+        const errorData = await response.json();
+
+        console.log('No response');
+        alert(errorData.message || "Registration failed.");
+        return;
+      }
+      console.log(await response, response.json);
+      const data = await response.json();
+      console.log(`Registration successful: ${data}. Redirecting to ${router}`);
+
+      if (userType === "doctors") {
+        router.push('/dashboard/#doctors');
+      } else if (userType === "nurses") {
+        router.push('/dashboard/#nurses');
+      }
+    } catch(err: any) {
+      console.error("Error during registration", err);
+      alert("An unexpected error occurred.");
+    }
   };
 
   return (
@@ -101,11 +129,23 @@ export default function RegistrationForm() {
           <TextField fullWidth type="email" label="Email Address" name="email" value={formData.email} onChange={handleChange} margin="normal" required />
           <TextField fullWidth type="date" label="Date of Birth" name="dob" value={formData.dob} onChange={handleChange} margin="normal" InputLabelProps={{ shrink: true }} required />
 
+          {userType === "nurses" && (
+            <TextField
+              fullWidth
+              label="License Number (NMCN approved)"
+              name="nursesLicense"
+              value={formData.nursesLicense}
+              onChange={handleChange}
+              margin="normal"
+              required
+            />
+          )}
+
           {userType === "doctors" && (
             <TextField
               fullWidth
               label="License Number (MDCN approved)"
-              name="doctorLicense"
+              name="doctorsLicense"
               value={formData.doctorsLicense}
               onChange={handleChange}
               margin="normal"

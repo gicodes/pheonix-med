@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
 import Page from '@/app/assets/page-template';
-import { Box, Stack, Typography } from '@mui/material';
 import RegistrationForm from './register-form';
+import { Box, Stack, Typography } from '@mui/material';
 
 export const generateMetadata = (): Metadata => {
   return {

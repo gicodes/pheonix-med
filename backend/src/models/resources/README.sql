@@ -1,38 +1,40 @@
--- Create Admins Table (for Admins/Mods)
-CREATE TABLE IF NOT EXISTS admins (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(100) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password TEXT NOT NULL,
-    role VARCHAR(50) DEFAULT 'admin',  -- or 'mod'
-    created_at TIMESTAMP DEFAULT NOW()
-);
+-- This defines TABLES, COLUMNS and DATATYPES associated with the container and instances for PostgresSQL
 
--- Create Users Table (common fields for all regular users)
+-- Users Table
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
-    password TEXT NOT NULL,
-    role VARCHAR(50) NOT NULL, -- e.g., 'doctor' or 'nurse'
-    created_at TIMESTAMP DEFAULT NOW()
+    hashed_password VARCHAR(255) NOT NULL,
+    role VARCHAR(50) NOT NULL,
+    createdAt TIMESTAMP DEFAULT NOW(),
+    updatedAt TIMESTAMP DEFAULT NOW()
 );
 
--- Create Doctors Table (sub-table with doctor-specific fields)
-CREATE TABLE IF NOT EXISTS doctors (
+-- Admins Table
+CREATE TABLE IF NOT EXISTS admins (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL,
-    specialization VARCHAR(255),
-    clinic_location TEXT,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
--- Create Nurses Table (sub-table with nurse-specific fields)
+-- Doctors Table
+CREATE TABLE IF NOT EXISTS doctors (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    user_profile JSONB,
+    notifications JSONB,
+    updatedAt TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Nurses Table
 CREATE TABLE IF NOT EXISTS nurses (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL,
-    shift_schedule TEXT,
-    ward VARCHAR(100),
-    location GEOGRAPHY(Point),  -- Optional: for queries like "nurses nearby"
+    user_profile JSONB,
+    reviews JSONB,
+    location VARCHAR(100),
+    updatedAt TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

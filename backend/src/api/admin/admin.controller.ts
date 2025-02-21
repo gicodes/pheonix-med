@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getUserById, getUsers, createNewUser } from '../../models/resources/admin_crud';
+import { getUserById, getUsers, createNewUser } from '../../models/user.model';
 
 // (Admin Only)
 export const getAllUsers = async (_req: Request, res: Response) => {

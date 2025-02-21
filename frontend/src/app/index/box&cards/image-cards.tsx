@@ -45,7 +45,7 @@ export const clickImages = [
   {
     src: '/images/nappy-giving-meds-unsplash.avif',
     title: 'Homecare Nursing →',
-    description: 'We bring professional and compassion right to your doorstep with our Homecare Nursing service. Access verified freelance nurses who offer day-to-day needs and special care',
+    description: 'We bring professional care and compassion right to your doorstep with our Homecare Nursing service. Access verified freelance nurses who offer day-to-day needs and special care',
     color: 'secondary'
   },
   {
@@ -105,7 +105,7 @@ export const ClickImageCard = styled(Card)<ImageCardProps>`
   }
 
   @media (min-width: 1024px) {
-    min-width: 300px;
+    min-width: 303px;
     height: 360px
   }
 

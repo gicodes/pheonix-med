@@ -2,16 +2,16 @@ import express from 'express';
 import { 
   getAllNurses, 
   getNurse, 
-  createNurse, 
+  registerNurse, 
   updateNurse, 
   deleteNurse 
-} from './nurses.controller';
+} from './nurse.controller';
 
 const router = express.Router();
 
 router.get('/nurses', getAllNurses);
 router.get('/nurses/:id', getNurse);
-router.post('/nurses', createNurse);
+router.post('/nurses', registerNurse);
 router.put('/nurses/:id', updateNurse);
 router.delete('/nurses/:id', deleteNurse);
 
