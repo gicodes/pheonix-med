@@ -1,4 +1,5 @@
 "use client";
+import { Box } from "@mui/material";
 import {
   createContext,
   useContext,
@@ -8,6 +9,7 @@ import {
   useState,
   ReactNode,
 } from "react";
+import { FaSpinner } from "react-icons/fa";
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -106,7 +108,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const contextValue = useMemo(() => ({ state, dispatch }), [state]);
   
   if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <Box p={2} my={10} textAlign={'center'}><FaSpinner /></Box>;
   }
 
   return (
