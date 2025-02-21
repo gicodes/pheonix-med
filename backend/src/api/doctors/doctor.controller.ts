@@ -5,8 +5,8 @@ import {
   createDoctorProfile, 
   updateDoctorProfile, 
   deleteUserByRole 
-} from '../../../models/CRUD/by_roles';
-import { createNewUser } from '../../../models/CRUD/superuser';
+} from '../../models/CRUD/by_roles';
+import { createNewUser } from '../../models/CRUD/superuser';
 
 const role = 'doctor';
 
@@ -34,7 +34,6 @@ export const registerDoctor = async (req: Request, res: Response) => {
 
     const user = await createNewUser(name, email, password, role);
     const doctor = await createDoctorProfile(user.id, userProfile);
-    console.log(doctor);
     res.status(201).json(doctor);
   } catch (error) {
     res.status(500).json({ error: 'Error creating doctor' });

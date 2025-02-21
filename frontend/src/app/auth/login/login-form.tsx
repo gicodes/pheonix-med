@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { 
@@ -11,15 +12,16 @@ import {
   TextField ,
   Typography
 } from "@mui/material";
+import { useAuth } from "@/app/contexts/auth.context";
 
 export default function LoginForm() {
-  const [userType, setUserType] = useState<"nurse" | "doctor">("nurse");
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-
   const [showPassword, setShowPassword] = useState(false);
+  const { dispatch } = useAuth();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -31,10 +33,41 @@ export default function LoginForm() {
 
   const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    console.log("Form submitted:", { ...formData, userType });
+    try {
+      const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL as string;
+      const response = await fetch(`${SERVER_URL}/api/auth/login`, {
+        method: 'POST',
+        body: JSON.stringify({ ...formData}),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      
+      if (!response.ok){
+        const errorData = await response.json();
+
+        alert(errorData.message || "Login attempt failed.");
+        return;
+      }
+
+      const user = await response.json();
+
+      dispatch({ type: "LOGIN", payload: user });
+      alert("Login successful!");
+      
+      if (user.role==="admin") {
+        router.push('/dashboard/admin/console');
+        return
+      }
+      
+      router.push('/dashboard');
+    } catch(err: any) {
+      console.error("Login failed", err);
+      alert("An unexpected error occurred.");
+    }
   };
 
   return (

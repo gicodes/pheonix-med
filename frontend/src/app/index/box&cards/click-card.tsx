@@ -20,17 +20,20 @@ const ClickImages = () => {
             <Stack
               padding={2}
               bottom={0}
+              right={0}
+              left={0}
               position={'absolute'}
               bgcolor={'rgba(0, 0, 0, 0.6)'}
               text-shadow={'1px 1px 5px rgba(0, 0, 0, 0.7)'}
             >
               <Typography 
-                mb={{ xs: 5, sm: 4, md: 6}}
+                mb={{ xs: 6, sm: 4, md: 6}}
                 color='white' 
                 fontSize={'smaller'}
               >
                 {image?.description}
               </Typography>
+              
               <Button
                 color={image?.color as 'inherit' | 'warning' | 'primary' | 'secondary' | 'success' | 'error' | 'info'}
                 variant='contained'

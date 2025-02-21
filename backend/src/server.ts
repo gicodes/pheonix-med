@@ -3,16 +3,13 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import express, { Express } from 'express';
 import AdminRouter from './api/admin/_page';
-import NurseUserRouter from './api/users/nurses/_page';
-import DoctorUserRouter from './api/users/doctors/_page';
+import AuthRouter from './api/auth/login/page';
+import NurseUserRouter from './api/nurses/_page';
+import DoctorUserRouter from './api/doctors/_page';
 
 dotenv.config();
 
 const app: Express = express();
-
-app.get('/', (request, response) => {
-  response.json({ info: 'Pheonix Meds-- Node.js, Express, and Postgres API' })
-})
 
 const allowedOrigins = ['http://localhost:3000', 'https://pheonixmeds.com.ng'];
 
@@ -30,6 +27,7 @@ app.use(
   })
 )
 
+app.use('/api', AuthRouter)
 app.use('/api', AdminRouter)
 app.use('/api', NurseUserRouter)
 app.use('/api', DoctorUserRouter)

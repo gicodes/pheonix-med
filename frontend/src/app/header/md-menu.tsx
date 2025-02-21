@@ -4,8 +4,10 @@ import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { Box, Typography, Stack, Collapse, Link, MenuItem } from "@mui/material";
+import { useAuth } from "../contexts/auth.context";
 
 const MenuDisplay = () => {
+  const { state } = useAuth();
   const pathname = usePathname();
   const [openSubMenus, setOpenSubMenus] = useState<{ [key: string]: boolean }>({});
 
@@ -15,8 +17,8 @@ const MenuDisplay = () => {
 
   const MenuItemSx = {
     color: "wheat",
-    fontFamily: "Times, Times New Roman, sans-serif",
     cursor: "pointer",
+    fontFamily: "Times, Times New Roman, sans-serif",
   };
 
   const ParentMenuPages = ({
@@ -49,9 +51,11 @@ const MenuDisplay = () => {
     </Stack>
   );
   
-  if (pathname.startsWith("/auth")) {
+  if (pathname.startsWith("/auth") || (pathname.startsWith("/dashboard"))) {
     return null;
   }
+
+  const user = state.user;
 
   return (
     <Box
@@ -65,6 +69,14 @@ const MenuDisplay = () => {
       justifyContent={"center"}
       display={{ xs: "none", md: "flex" }}
     >
+      {user &&
+        <MenuItem sx={{ position: "relative", display: "grid", alignItems: "flex-start" }}>
+          <Link href="/dashboard" sx={{ color: "wheat", fontSize: "smaller" }}>
+            Dashboard
+          </Link>
+        </MenuItem>
+      }
+
       <MenuItem sx={{ position: "relative", display: "grid", alignItems: "flex-start" }}>
         <Link href="/pharmacy" sx={{ color: "wheat", fontSize: "smaller" }}>
           Lock-in Pharmacy
@@ -78,7 +90,7 @@ const MenuDisplay = () => {
   );
 };
 
-export const MenuSubTitle = () => {
+export const MenuSubTitle = ({name}: {name: string | null}) => {
   return (
     <Box>
       <Typography
@@ -90,7 +102,7 @@ export const MenuSubTitle = () => {
         display={{ xs: 'none', md: 'grid' }}
         boxShadow={'0px 2px 10px rgba(0, 0, 0, 0.1)'}
       >
-        Welcome to your all-in-one Medical Center
+        {name===null ? "Welcome to your all-in-one Medical Center" :  `Hi, ${name}. Feeling good?`}
       </Typography>
     </Box>
   );

@@ -56,7 +56,7 @@ export default function RegistrationForm() {
   const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
   const toggleConfirmPasswordVisibility = () => setShowConfirmPassword((prev) => !prev);
 
-  const handleSubmit =async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
@@ -66,32 +66,23 @@ export default function RegistrationForm() {
     }
 
     try {
-      const response = await fetch(`http://localhost:5001/api/${userType}`, {
+      const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL as string;
+      const response = await fetch(`${SERVER_URL}/api/${userType}`, {
         method: 'POST',
         body: JSON.stringify({ ...formData, userType}),
         headers: {
           'Content-Type': 'application/json',
         },
       })
-
-      console.log('After response')
       
       if (!response.ok){
         const errorData = await response.json();
 
-        console.log('No response');
         alert(errorData.message || "Registration failed.");
         return;
       }
-      console.log(await response, response.json);
-      const data = await response.json();
-      console.log(`Registration successful: ${data}. Redirecting to ${router}`);
-
-      if (userType === "doctors") {
-        router.push('/dashboard/#doctors');
-      } else if (userType === "nurses") {
-        router.push('/dashboard/#nurses');
-      }
+      
+      router.push('/dashboard');
     } catch(err: any) {
       console.error("Error during registration", err);
       alert("An unexpected error occurred.");

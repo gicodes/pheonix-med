@@ -5,8 +5,8 @@ import {
   createNurseProfile, 
   updateNursesProfile,
   deleteUserByRole 
-} from '../../../models/CRUD/by_roles';
-import { createNewUser } from '../../../models/CRUD/superuser';
+} from '../../models/CRUD/by_roles';
+import { createNewUser } from '../../models/CRUD/superuser';
 
 const role = 'nurse';
 

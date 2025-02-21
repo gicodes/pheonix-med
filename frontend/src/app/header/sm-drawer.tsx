@@ -3,11 +3,11 @@ import CloseIcon from "@mui/icons-material/Close";
 import {ExpandMore, ExpandLess} from "@mui/icons-material";
 import { Drawer, Box, IconButton, Typography, Stack, Collapse, Link } from "@mui/material";
 
-const MenuDrawer = ({ 
-  open, toggleDrawer }: 
-  { open: boolean; toggleDrawer: (open: boolean) => (
-  event: React.KeyboardEvent | React.MouseEvent) => void }) => { 
-     
+const MenuDrawer = ({ open, toggleDrawer, username }: 
+  { open: boolean; 
+    toggleDrawer: (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => void; 
+    username: string | undefined 
+  }) => {    
   const [openSubMenus, setOpenSubMenus] = useState<{ [key: string]: boolean }>({});
   const handleSubMenuToggle = (menu: string) => {
     setOpenSubMenus((prev) => ({ ...prev, [menu]: !prev[menu] }));
@@ -56,7 +56,11 @@ const MenuDrawer = ({
   );  
 
   return (
-    <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
+    <Drawer 
+      anchor="left" 
+      open={open} 
+      onClose={toggleDrawer(false)}
+    >
       <Box
         sx={{
           width: { xs: 250, sm: 360},
@@ -81,7 +85,15 @@ const MenuDrawer = ({
           </Stack>
         </Box>
 
-        <Stack gap={2} color={"wheat"} pt={10} mx={"auto"}>          
+        <Stack gap={2} color={"wheat"} pt={10} mx={"auto"}>
+          { username && 
+            <Link href="/dashboard" onClick={toggleDrawer(false)}>
+              <Typography color="wheat" fontSize={"smaller"} sx={{ cursor: "pointer" }}>
+                Dashboard
+              </Typography>
+            </Link>
+          } 
+
           <Link href="/pharmacy" onClick={toggleDrawer(false)}>
             <Typography color="wheat" fontSize={"smaller"} sx={{ cursor: "pointer" }}>
               Lock-in Pharmacy
@@ -89,7 +101,6 @@ const MenuDrawer = ({
           </Link>
 
           <ParentMenuPages caption="Nurses & Homecare" name="Nurse" title="nurses" />
-
           <ParentMenuPages caption="Doctor Consultancy" name="Doctor" title="doctors" />
         </Stack>
       </Box>

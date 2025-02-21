@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Header from "./header/header";
 import MenuDisplay from "./header/md-menu";
 import { Geist, Geist_Mono } from "next/font/google";
+import { AuthProvider } from "./contexts/auth.context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,10 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Header />
-        <MenuDisplay />
-        {children}
-        <Footer />
+        <AuthProvider>
+          <Header />
+          <MenuDisplay />
+          {children}
+          <Footer /> 
+        </AuthProvider>   
       </body>
     </html>
   );

@@ -16,7 +16,7 @@ interface NurseProfile {
   name: string;
   dob: Date | string;
   termsAccepted: boolean;
-  license?: string;
+  nursesLicense?: string;
 }
 interface Reviews {}
 
@@ -26,8 +26,13 @@ export const getUsersByRole = async (role: string) => {
 };
 
 export const getUserByIdAndRole = async (id: number, role: string) => {
-  const user = await User.findOne({ where: { id, role } });
-  return user;
+  if (role === 'nurse') {
+    return await Nurse.findOne({ where: { id } });
+  } else if (role === 'doctor') {
+    return await Doctor.findOne({ where: { id } });
+  } else {
+    return null;
+  }
 };
 
 export const createDoctorProfile = async (
@@ -77,11 +82,9 @@ export const updateDoctorProfile = async (
 ) => {
   const transaction: Transaction = await pool.transaction();
   try {
-    const user = await User.findOne({ where: { id, role: 'doctor' }, transaction });
+    const user = await Doctor.findOne({ where: { id, role: 'doctor' }, transaction });
     if (!user) throw new Error('User not found');
 
-    user.name = name;
-    user.email = email;
     await user.save({ transaction });
 
     const doctorProfile = await Doctor.findOne({ where: { user_id: id }, transaction });
@@ -114,11 +117,9 @@ export const updateNursesProfile = async (
 ) => {
   const transaction: Transaction = await pool.transaction();
   try {
-    const user = await User.findOne({ where: { id, role: 'nurse' }, transaction });
+    const user = await Nurse.findOne({ where: { id, role: 'nurse' }, transaction });
     if (!user) throw new Error('User not found');
 
-    user.name = name;
-    user.email = email;
     await user.save({ transaction });
 
     const nurseProfile = await Nurse.findOne({ where: { user_id: id }, transaction });

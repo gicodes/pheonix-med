@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getUserById, getUsers, createNewUser } from '../../models/user.model';
+import { getUserById, getUsers, createNewUser } from '../../models/CRUD/superuser';
 
 // (Admin Only)
 export const getAllUsers = async (_req: Request, res: Response) => {
@@ -26,16 +26,15 @@ export const getSingleUser = async (req: Request, res: Response) => {
 
 export const addUser = async (req: Request, res: Response) => {
   try {
-    const { name, email, role } = req.body;
-
+    const { name, email, password, role } = req.body;
     if (!name || !email) {
       res.status(400).json({ error: 'Missing fields' });
       return;
     }
 
-    const newUser = await createNewUser(name, email, role);
+    const newUser = await createNewUser(name, email, password, role);
     res.status(201).json(newUser);
   } catch (error) {
     res.status(500).json({ error: 'Server error' });
   }
-};
+}
