@@ -11,13 +11,13 @@ export const VerifyWarning = () => {
         mx: 'auto',
         my: {xs: 1, sm: 2, md: 3},
         bgcolor: 'wheat',
-        width: { md: '75%', lg: '50%' },
+        width: 'fit-content',
       }}
     >
       <Typography width={'100%'} fontSize={'small'}>
         Your account requires verification. Proceed to upload your 
-        <Link href={"#documents-upload"}>{' '}
-          <b className='underline'>documents</b>
+        <Link href={"/api/documents-upload"}>{' '}
+          <span className='underline text-black'>documents</span>
         </Link> 
       </Typography>
     </Alert>

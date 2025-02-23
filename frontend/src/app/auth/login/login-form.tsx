@@ -58,13 +58,17 @@ export default function LoginForm() {
       dispatch({ type: "LOGIN", payload: user });
       alert("Login successful!");
       
-      if (user.role==="admin") {
+      if (user.name==="Gideon Iduma") {
         router.push('/dashboard/admin/console');
         return
       }
       
       router.push('/dashboard');
-    } catch(err: any) {
+    } catch(err: any) { 
+      if (err.message==="Failed to fetch") {
+        alert("Username or password incorrect");
+        return;
+      }     
       console.error("Login failed", err);
       alert("An unexpected error occurred.");
     }

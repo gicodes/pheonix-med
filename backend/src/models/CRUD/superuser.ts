@@ -22,6 +22,7 @@ export const createNewUser = async (
   try {
     const hashed_password = await bcrypt.hash(password, saltRounds);
     const user = await User.create({ name, email, hashed_password, role });
+
     return user;
   } catch (err: any) {
     console.error('Error creating new user:', err);
@@ -34,16 +35,14 @@ export const loginWithEmailAndPassword = async (
   plainTextPassword: string
 ): Promise<User> => {
   const user = await User.findOne({ where: { email } });
-  if (!user) {
-    throw new Error('User not found');
-  }
+  if (!user) throw new Error('User not found');
+  
   const isValidPassword = await bcrypt.compare(
     plainTextPassword,
     user.hashed_password
   );
-  if (!isValidPassword) {
-    throw new Error('Invalid password');
-  }
+
+  if (!isValidPassword) throw new Error('Invalid password');
   return user;
 };
 
@@ -52,21 +51,21 @@ export const updateAUser = async (
   email: string,
   id: number
 ): Promise<User | null> => {
+  console.log("Got here")
   const user = await User.findByPk(id);
-  if (!user) {
-    return null;
-  }
+  if (!user) return null;
+
   user.name = name;
   user.email = email;
+
   await user.save();
   return user;
 };
 
 export const deleteAUser = async (id: number): Promise<User | null> => {
   const user = await User.findByPk(id);
-  if (!user) {
-    return null;
-  }
+  if (!user) return null;
+  
   await user.destroy();
   return user;
 };

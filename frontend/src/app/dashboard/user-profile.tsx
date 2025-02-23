@@ -23,7 +23,7 @@ const cardSx = {
   minHeight: { xs: '212px', sm: '200px', md: '224px'}
 }
 
-interface UserData {
+export interface UserData {
   id: number | null;
   name: string | null;
   email: string | null;
@@ -80,7 +80,6 @@ const UserProfile = () => {
 
       const data = await response.json();
       setUserProfile(data)
-      console.log(data)
     }
 
     getUserByRole();
@@ -145,11 +144,13 @@ const UserProfile = () => {
                   Upload supporting documents to activate account
                 </Typography>
                 <Typography fontSize={'11px'} mt={3}>
-                  <span>To activate your account, please provide the following documents:</span>
-                  <span className='block mt-1 text-wheat'>A clear image of your valid medical license</span>
-                  <span className='block text-wheat'>Your updated CV</span>
-                  <span className='block mb-1 text-wheat'>Your most recent employment letter</span>
-                  <span>Upload these documents via the <Link className='text-wheat' href={'/upload-a-document'}>Upload a Document portal</Link></span>
+                  <span className='grid-start'>
+                    <span>You are required to provide the following documents for verification ::</span>
+                    <span className='block mt-1 text-wheat'>A clear image of your valid medical license</span>
+                    <span className='block text-wheat'>Your updated CV</span>
+                    <span className='block mb-1 text-wheat'>Your most recent employment letter</span>
+                    <span>Submit these documents via <Link className='text-wheat' href={'/api/upload-a-document'}>Upload A Document</Link></span>
+                  </span>
                 </Typography>
               </Box>) : (
               <Box display={'flex'} justifyContent={'space-between'}>

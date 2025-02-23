@@ -46,6 +46,16 @@ a {
   }
 }
 
+.bg-dark {
+  background: #171717;
+  color: whitesmoke;
+}
+
+.bg-gray {
+  background: #707070;
+  color: #101010;
+}
+
 .bg-pheonix {
   background: linear-gradient(45deg, gold, #FF2400, purple);
 }
@@ -81,6 +91,7 @@ a {
   letter-spacing: 0.05rem;
 }
 
+.text-black { color: black;}
 .text-gray { color: gray;}
 .text-white { color: white; }
 .text-wheat { color: wheat; }
@@ -165,9 +176,16 @@ a {
   align-items: center;
 }
 
+.grid-start {
+  display: grid
+}
+
 .block { display: block;}
+
 .underline { text-decoration: underline;}
+
 .round-circle { border-radius: 50%;}
+
 .text-center { text-align: center;}
 
 .p-1 { padding: 1rem; }
