@@ -6,7 +6,7 @@ import { Card, Box, Button, FormControl, InputLabel, MenuItem, Select, Stack, Te
 const AdminConsole = () => {
   const [users, setUsers] = useState<any | null>([]);
   const [newUser, setNewUser] = useState({ name: '', email: '', password: '', role: '' });
-  const [updateUserData, setUpdateUserData] = useState({ id: '', name: '', email: '' });
+  const [updateUserData, setUpdateUserData] = useState({ id: '', name: '', email: '', role: '' });
   const [deleteUserId, setDeleteUserId] = useState('');
   const [usersList, setUsersList] = useState(false);
   const [createUserForm, setCreateUserForm] = useState(false);
@@ -55,19 +55,19 @@ const AdminConsole = () => {
 
   const handleUpdateUser = async () => {// Update a user
     try {
-      const { id, name, email } = updateUserData;
+      const { id, name, email, role } = updateUserData;
       const response = await fetch(`${SERVER_URL}/api/admin/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, email })
+        body: JSON.stringify({  id, name, email, role})
       });
 
       if (!response.ok) throw new Error('Failed to update user');
 
       alert('User updated successfully');
-      setUpdateUserData({ id: '', name: '', email: '' });
+      setUpdateUserData({ id: '', name: '', email: '', role: '' });
 
       fetchAllUsers();
     } catch (error) {
@@ -112,8 +112,8 @@ const AdminConsole = () => {
             <Box my={1} p={2} border="1px solid #ccc" borderRadius={2}>
               {users.map((user: UserData) => (
                 <Box key={user?.id} my={1} p={1} borderBottom="1px solid #eee">
-                  <Typography variant='caption' color='red'> User ID: &nbsp; ( {user?.id} )</Typography>
-                  <Typography variant="body2">Title: &nbsp; <span className='fs-small'>{user?.role}</span></Typography>
+                  <Typography variant='caption' color='red'> User id: &nbsp; ( {user?.id} )</Typography>
+                  <Typography variant="body2">Office: &nbsp; <span className='fs-small'>{user?.role}</span></Typography>
                   <Typography variant="body2">Name: &nbsp; <span className='fs-small'>{user?.name}</span></Typography>
                   <Typography variant="body2">Email: &nbsp; <span className='fs-small text-gray'>{user?.email}</span></Typography>
                 </Box>
@@ -200,6 +200,20 @@ const AdminConsole = () => {
               fullWidth
               margin="normal"
             />
+            <FormControl fullWidth margin="normal">
+              <InputLabel id="updated-user-role-label">Role</InputLabel>
+              <Select
+                labelId="updated-user-role-label"
+                id="updated-user-role"
+                value={updateUserData.role}
+                label="Role"
+                onChange={(e) => setUpdateUserData({ ...updateUserData, role: e.target.value })}
+              >
+                <MenuItem value="admin">Admin</MenuItem>
+                <MenuItem value="doctor">Doctor</MenuItem>
+                <MenuItem value="nurse">Nurse</MenuItem>
+              </Select>
+            </FormControl>
             <Button onClick={handleUpdateUser} variant="contained" sx={{ mt: 1 }}>Update</Button>
           </Box>
           }

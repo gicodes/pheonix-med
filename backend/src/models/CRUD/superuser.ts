@@ -49,7 +49,8 @@ export const loginWithEmailAndPassword = async (
 export const updateAUser = async (
   name: string,
   email: string,
-  id: number
+  id: number,
+  role: string
 ): Promise<User | null> => {
   console.log("Got here")
   const user = await User.findByPk(id);
@@ -57,6 +58,7 @@ export const updateAUser = async (
 
   user.name = name;
   user.email = email;
+  user.role = role;
 
   await user.save();
   return user;

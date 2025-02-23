@@ -1,6 +1,6 @@
 "use client"
 
-import { Badge, Box, Button, Card, Stack, Typography } from '@mui/material';
+import { Badge, Box, Button, Card, Divider, Stack, Typography } from '@mui/material';
 import { useAuth } from '../contexts/auth.context';
 import { VerifyWarning } from './warning-card';
 import { useEffect, useState } from 'react';
@@ -77,7 +77,7 @@ const UserProfile = () => {
           'Content-Type': 'application/json',
         },
       })
-
+    
       const data = await response.json();
       setUserProfile(data)
     }
@@ -91,10 +91,9 @@ const UserProfile = () => {
       {user_verified===undefined && <VerifyWarning />}
 
       <Stack
-        direction={{ md: 'row'}}
+        direction={{ md: 'row'}} gap={1}
         display={{ xs: 'grid', sm: 'grid', md: 'flex' }}
         justifyContent={{ sm: 'center', md: 'space-between'}}
-        gap={1}
       >
         <section className='fullWidth'>
           <Card sx={cardSx}>
@@ -138,22 +137,26 @@ const UserProfile = () => {
           className='fullWidth'
         >
           <Card sx={cardSx}> 
-            { user_verified===undefined ? (
+            { user_verified ? (
               <Box textAlign={'center'} p={2} bgcolor={'#202020'}>
                 <Typography fontSize={'small'} color='burlywood'>
                   Upload supporting documents to activate account
                 </Typography>
                 <Typography fontSize={'11px'} mt={3}>
                   <span className='grid-start'>
-                    <span>You are required to provide the following documents for verification ::</span>
+                    <span>You are required to provide the following PDF documents for verification ::</span>
                     <span className='block mt-1 text-wheat'>A clear image of your valid medical license</span>
                     <span className='block text-wheat'>Your updated CV</span>
                     <span className='block mb-1 text-wheat'>Your most recent employment letter</span>
-                    <span>Submit these documents via <Link className='text-wheat' href={'/api/upload-a-document'}>Upload A Document</Link></span>
+                    <span>Submit these documents via <Link className='text-wheat' href={'/upload-docsument'}>Upload A Document</Link></span>
                   </span>
                 </Typography>
               </Box>) : (
-              <Box display={'flex'} justifyContent={'space-between'}>
+              <Box 
+                display={'flex'} 
+                justifyContent={'space-between'} 
+                minHeight={'180px'}
+              >
                 <Stack pt={1} gap={3} width={'30%'}>
                   <Image 
                     width="75" 
@@ -162,17 +165,18 @@ const UserProfile = () => {
                     className='round-circle'
                     alt="Pheonix Med User PFP"
                   />
-
                   { isNurse && <Typography> {userProfile?.location}</Typography>}
                   <Typography fontSize={'10px'} color='gray'>
                     {license_txt} 
-                    <span className='block text-silver let-sp-2 fs-mid mono'> {license}</span>
+                    <span className='block text-silver let-sp fs-mid mono'> {license}</span>
                   </Typography>
                 </Stack>
                 
-                <Stack pt={1} mx={'auto'} width={'70%'}>
+                <Stack pt={1} mx={'auto'} width={'70%'} bgcolor={'#1a1a1a'}>
                   <Box textAlign={'center'}>
-                    <h5 className='mb-1'>{office_area_fallback_txt}</h5>
+                    <h5 className='mb-1 text-gray'>{office_area_fallback_txt} 
+                      <Divider sx={{ bgcolor: 'gray'}}/> 
+                    </h5>
 
                     { office_area && Object.entries(office_area).length < 1 ? 
                       <Typography fontSize={'smaller'}>

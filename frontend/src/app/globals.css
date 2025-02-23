@@ -24,9 +24,9 @@ body {
   margin: 0;
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -68,13 +68,9 @@ a {
   background: linear-gradient(45deg, whitesmoke, gray, #909090);
 }
 
-.text-dark {
-  color: #101010;
-}
+.text-dark { color: #101010; }
 
-.text-flame {
-  color: linear-gradient(45deg, gold, #ff7700, purple);
-}
+.text-flame { color: linear-gradient(45deg, gold, #ff7700, purple); }
 
 .text-pheonix {
   background: linear-gradient(45deg, gold, #ff7700, purple);
@@ -83,6 +79,7 @@ a {
   color: transparent;
   letter-spacing: 0.05rem;
 }
+
 .pheonix-effect:hover {
   background: linear-gradient(45deg, gold, #ff7700, purple);
   background-clip: text;
@@ -97,19 +94,20 @@ a {
 .text-wheat { color: wheat; }
 .text-silver { color: silver; }
 .text-burly { color: burlywood; }
+.text-danger { color: #FF2400;}
 
 .flame {
   background: linear-gradient(45deg, #FF4500, #FFA500, #FFD700);
-  background-clip: text;
   -webkit-background-clip: text; 
+  background-clip: text;
   color: transparent;
 }
 
 .flame-2 {
-  font-family: 'Arial Black', sans-serif;
   background: linear-gradient(45deg,  tomato, #FFA500, #FFD700);
-  background-clip: text;
+  font-family: 'Arial Black', sans-serif;
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
@@ -149,7 +147,9 @@ a {
   font-family: monospace;
 }
 
+.let-sp { letter-spacing: 0.1rem; }
 .let-sp-2 { letter-spacing: 0.2rem;}
+
 .fs-mid { font-size: medium;}
 .fs-small { font-size: small;}
 .fs-xs { font-size: x-small;}

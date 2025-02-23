@@ -41,9 +41,10 @@ export const addUser = async (req: Request, res: Response) => {
 
 export const updateUser = async (req: Request, res: Response) => {
   try {
-    const { name, email, id } = req.body;
+    const { name, email, id, role } = req.body;
+    console.log(req.body)
 
-    const updatedUser = await updateAUser(name, email, id);
+    const updatedUser = await updateAUser(name, email, id, role);
     if (!updatedUser) {
       res.status(404).json({ error: 'User not found' });
       return;

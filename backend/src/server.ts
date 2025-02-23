@@ -31,6 +31,8 @@ app.use('/api', AuthRouter)
 app.use('/api', AdminRouter)
 app.use('/api', NurseUserRouter)
 app.use('/api', DoctorUserRouter)
+// upload a document route
+// phamacy route
 
 const PORT = process.env.PORT || 5001;
 

@@ -16,7 +16,7 @@ export const VerifyWarning = () => {
     >
       <Typography width={'100%'} fontSize={'small'}>
         Your account requires verification. Proceed to upload your 
-        <Link href={"/api/documents-upload"}>{' '}
+        <Link href={"/upload-docs"}>{' '}
           <span className='underline text-black'>documents</span>
         </Link> 
       </Typography>

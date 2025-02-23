@@ -37,21 +37,21 @@ export const clickImages = [
     color: 'error'
   },
   {
-    src: '/images/seat-sit-unsplash.avif',
-    title: 'Speak To A Doctor →',
-    description: 'Connect instantly with licensed doctors for expert medical advice from the comfort of your home. Whether it’s a follow-up consultation, a prescription update, or video chat',
-    color: 'primary'
-  },
-  {
     src: '/images/nappy-giving-meds-unsplash.avif',
     title: 'Homecare Nursing →',
     description: 'We bring professional care and compassion right to your doorstep with our Homecare Nursing service. Access verified freelance nurses who offer day-to-day needs and special care',
     color: 'secondary'
   },
   {
+    src: '/images/seat-sit-unsplash.avif',
+    title: 'Speak To A Doctor →',
+    description: 'Connect instantly with licensed doctors for expert medical advice from the comfort of your home. Whether it’s a follow-up consultation, a prescription update, or video chat',
+    color: 'primary'
+  },
+  {
     src: '/images/nappy-medical-reports-unsplash.jpg',
     title: 'Save A Life Campaign →',
-    description: 'Join our mission to transform lives by supporting those who cannot afford essential medications. Through the Save A Life Campaign, you contribute directly and help patients in need',
+    description: "Join our mission to transform lives by supporting those who can't afford essential medications. Through the Save A Life Campaign, you contribute directly and help patients in need",
     color: 'warning'
   },
   // {
