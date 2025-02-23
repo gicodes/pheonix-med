@@ -17,7 +17,7 @@ interface UploadResponse {
   message: string;
 }
 
-export const postDocumentUpload = async (formData: FormData): Promise<UploadResponse> => {
+const handleDocumentUpload = async (formData: FormData): Promise<UploadResponse> => {
   try {
     const response = await fetch(`${SERVER_URL}/api/upload-a-doc`, {
       method: 'POST',
@@ -67,7 +67,7 @@ const DocumentUploadForm = () => {
       formData.append('files', files[i]);
     }
 
-    const result = await postDocumentUpload(formData);
+    const result = await handleDocumentUpload(formData);
     setUploadStatus(result.message || 'Upload completed');
   };
 

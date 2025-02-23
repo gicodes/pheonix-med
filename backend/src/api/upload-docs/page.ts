@@ -6,7 +6,6 @@ const upload = multer({ dest: 'uploads/' });
 
 router.post('/upload-docs', upload.array('files'), (req: Request, res: Response) => {
   const { name, user_id, role, extraInfo } = req.body;
-  // Cast req.files to the proper type so .filter and .map are available.
   const files = req.files as Express.Multer.File[];
 
   if (!files || files.length === 0) {
