@@ -7,13 +7,14 @@ const AdminConsole = () => {
   const [users, setUsers] = useState<any | null>([]);
   const [newUser, setNewUser] = useState({ name: '', email: '', password: '', role: '' });
   const [updateUserData, setUpdateUserData] = useState({ id: '', name: '', email: '', role: '' });
-  const [deleteUserId, setDeleteUserId] = useState('');
+  const [deleteUserId, setDeleteUserId] = useState(0);
   const [usersList, setUsersList] = useState(false);
   const [createUserForm, setCreateUserForm] = useState(false);
   const [updateUserForm, setUpdateUserForm] = useState(false);
 
   const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL;
   
+  // Admin CRUD Actions
   const handleCreateUser = async () => {// Create a new user
     try {
       const response = await fetch(`${SERVER_URL}/api/admin`, {
@@ -46,9 +47,11 @@ const AdminConsole = () => {
     try {
       const response = await fetch(`${SERVER_URL}/api/admin`);
       if (!response.ok) throw new Error('Failed to fetch users');
+      
       const data = await response.json();
       setUsers(data);
     } catch (error) {
+      alert('Error fetching users from server');
       console.error('Error fetching users:', error);
     }
   };
@@ -71,23 +74,31 @@ const AdminConsole = () => {
 
       fetchAllUsers();
     } catch (error) {
+      alert('Error updating user');
       console.error('Error updating user:', error);
     }
   };
 
   const handleDeleteUser = async () => {// Delete a user
+    if(deleteUserId===0) {
+      alert("Input a valid user ID"); 
+      return;
+    }
+
+    alert(`Deleting user with ID ${deleteUserId}`)
     try {
       const response = await fetch(`${SERVER_URL}/api/admin/${deleteUserId}`, {
-        method: 'DELETE'
+        method: 'DELETE',
       });
 
       if (!response.ok) throw new Error('Failed to delete user');
 
       alert('User deleted successfully');
-      setDeleteUserId('');
+      setDeleteUserId(0);
 
       fetchAllUsers();
     } catch (error) {
+      alert('Error deleting user');
       console.error('Error deleting user:', error);
     }
   };
@@ -224,7 +235,7 @@ const AdminConsole = () => {
             <TextField
               label="User ID"
               value={deleteUserId}
-              onChange={(e) => setDeleteUserId(e.target.value)}
+              onChange={(e) => setDeleteUserId(Number(e.target.value))}
               fullWidth
               margin="normal"
             />

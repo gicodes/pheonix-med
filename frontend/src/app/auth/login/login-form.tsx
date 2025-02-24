@@ -58,7 +58,7 @@ export default function LoginForm() {
       dispatch({ type: "LOGIN", payload: user });
       alert("Login successful!");
       
-      if (user.name==="Gideon Iduma") {
+      if (user.role==="admin") {
         router.push('/dashboard/admin/console');
         return
       }

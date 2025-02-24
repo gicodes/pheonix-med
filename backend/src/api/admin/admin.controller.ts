@@ -57,9 +57,10 @@ export const updateUser = async (req: Request, res: Response) => {
 
 export const deleteUser = async (req: Request, res: Response) => {
   try {
-    const { id } = req.body;
+    const {id} = req.params;
+    console.log(id)
 
-    const user = await deleteAUser(id);
+    const user = await deleteAUser(Number(id));
     if (!user) {
       return;
     }

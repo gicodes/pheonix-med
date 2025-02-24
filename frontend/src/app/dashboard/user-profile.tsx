@@ -4,6 +4,7 @@ import { Badge, Box, Button, Card, Divider, Stack, Typography } from '@mui/mater
 import { useAuth } from '../contexts/auth.context';
 import { VerifyWarning } from './warning-card';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import LogoTxt from '../assets/logo';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -48,6 +49,7 @@ interface UserProfile {
 }
 
 const UserProfile = () => {
+  const router = useRouter();
   const { state } = useAuth();
   const [ user, setUser ] = useState<UserData>();
   const [ userProfile, setUserProfile ] = useState<UserProfile>();
@@ -64,6 +66,10 @@ const UserProfile = () => {
   useEffect(() => {
     const userData = state?.user;
     if (userData) setUser(userData);
+    if (userData?.role==="admin") {
+      router.push('/dashboard/admin/console') 
+      return
+    }
     
     const getUserByRole = async () => {
       const user_id = userData?.id;

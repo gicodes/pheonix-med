@@ -65,6 +65,7 @@ export const updateAUser = async (
 };
 
 export const deleteAUser = async (id: number): Promise<User | null> => {
+  console.log(id)
   const user = await User.findByPk(id);
   if (!user) return null;
   
